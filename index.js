@@ -18,7 +18,61 @@ const questions = [
         }
     },
 
-  
+    {
+        type: 'input',
+        message: "Please describe your project.",
+        name: 'description',
+        default: 'Project Description',
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("A  project description is required.");
+            }
+            return true;
+        }
+    },
+
+    {
+        type: 'input',
+        message: "What are the steps for installiation?",
+        name: 'installation',
+    },
+
+    {
+        type: 'input',
+        message: "How is this project meant to be used?",
+        name: 'usage',
+        default: 'How to Use',
+    },
+
+    {
+        type: 'list',
+        message: "What license did you want for your project?",
+        choices: ['Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'none'],
+        name: 'license'
+    },
+
+    {
+        type: 'input',
+        message: "Are there any other major contributors? Or did you want to include information on how to become a contributor?",
+        name: 'contributions'
+    },
+ 
+    {
+        type: 'input',
+        message: "What is your GitHub username?",
+        name: 'github',
+        default: 'yourUsername',
+    },
+
+    {
+        type: 'input',
+        message: "What is your email address?",
+        name: 'email',
+        default: 'example@email.com',
+    }
+];
+
+
 //Function to write README file
 
 // Function call to initialize app
