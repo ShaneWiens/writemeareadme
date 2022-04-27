@@ -77,29 +77,29 @@ const questions = [
 function writeReadMe() {
     inquirer
         .prompt(questions)
-        .then((responses) => {
-            console.log(responses);
-            const myMarkdown = markdown(responses.license);
-            fs.writeFile('newREADME.md', `# ${responses.title}
+        .then((userInput) => {
+            console.log(userInput);
+            const Markdown = markdown(userInput.license);
+            fs.writeFile('newREADME.md', `# ${userInput.title}
 ## Description
-${responses.description}
+${userInput.description}
 ## Table of Contents
 1. [Installation](#installation) 
 2. [Usage](#usage)
 3. [Contributions](#contributions)
 4. [Questions](#questions)
 ## Installation 
-${responses.installation}
+${userInput.installation}
 ## Usage 
-${responses.usage}
+${userInput.usage}
 ## Contributing 
-${responses.contributing}
+${userInput.contributing}
 ## Questions
 ### GitHub
-[GitHub](https://www.github.com/${responses.github}) 
+[GitHub](https://www.github.com/${userInput.github}) 
 ### Email
-${responses.email}
-${myMarkdown}`, function(err) {
+${userInput.email}
+${Markdown}`, function(err) {
     if (err) throw err;
     console.log('README created!');
     
